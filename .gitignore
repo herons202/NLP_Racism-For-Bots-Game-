@@ -1,0 +1,40 @@
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebook checkpoints and cache
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Large model weights and checkpoints
+*.pt
+*.pth
+*.bin
+*.pkl
+*.h5
+best_racism_model.pt
+saved_racism_model/
+
+# Output / generated predictions and logs
+test_predictions.csv
+*.log
