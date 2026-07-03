@@ -6,7 +6,7 @@ Dokumen ini menjelaskan detail teknis tentang model deteksi rasisme (NLP Racism 
 
 ---
 
-## 🎮 1. Tujuan Project (Untuk Bot Game)
+## 1. Tujuan Project (Untuk Bot Game)
 Dalam konteks **Bot Game** (misalnya bot moderasi Discord, bot chat game, atau NPC interaktif), model ini berfungsi sebagai **filter & moderator otomatis**.
 * **Fungsi Utama**: Mendeteksi secara *real-time* jika ada pemain yang mengirimkan chat bernada rasisme, ujaran kebencian berbasis SARA/ras, atau kata-kata makian rasis (seperti varian *N-word*, sebutan rasis lokal, dll.).
 * **Output Bot**: Jika terdeteksi (`HS_Race = 1`), bot dalam game dapat melakukan tindakan seperti:
@@ -17,7 +17,7 @@ Dalam konteks **Bot Game** (misalnya bot moderasi Discord, bot chat game, atau N
 
 ---
 
-## 📊 2. Dataset yang Digunakan
+## 2. Dataset yang Digunakan
 Model ini dilatih menggunakan penggabungan dua dataset:
 1. **Dataset Utama (`re_dataset.csv`)**:
    * Dataset dari penelitian Muhammad Okky Ibrohim & Indra Budi (2019).
@@ -27,14 +27,14 @@ Model ini dilatih menggunakan penggabungan dua dataset:
 
 ---
 
-## 🧹 3. Preprocessing Teks (Pencegahan Obfuscation)
+## 3. Preprocessing Teks (Pencegahan Obfuscation)
 Pemain game sering kali menyamarkan kata rasis agar tidak terdeteksi oleh filter teks biasa (misal menulis `n1gg3r`, `n*gga`, `c1n0`). Model ini menggunakan regex pemetaan khusus sebelum teks dimasukkan ke model:
 * Mengubah variasi tulisan tersamar (*obfuscated words*) kembali ke bentuk dasar kata rasis standar sehingga model BERT dapat memahaminya dengan baik.
 * Menghapus karakter non-alfanumerik yang tidak perlu, username placeholder (`USER`), dan tautan (`URL`).
 
 ---
 
-## 🧠 4. Arsitektur Model yang Digunakan
+## 4. Arsitektur Model yang Digunakan
 Model yang digunakan adalah **IndoBERT** (`indobenchmark/indobert-base-p1`):
 * **Mengapa IndoBERT?**
   * IndoBERT adalah model berbasis transformer **BERT-base** yang dilatih secara khusus menggunakan korpus bahasa Indonesia berskala besar (~220 juta kata).
@@ -46,7 +46,7 @@ Model yang digunakan adalah **IndoBERT** (`indobenchmark/indobert-base-p1`):
 
 ---
 
-## ⚙️ 5. Hyperparameter & Detail Training
+## 5. Hyperparameter & Detail Training
 Proses pelatihan model diatur dengan konfigurasi berikut:
 
 | Parameter | Nilai | Penjelasan |
@@ -62,7 +62,7 @@ Proses pelatihan model diatur dengan konfigurasi berikut:
 
 ---
 
-## 💾 6. Output Penyimpanan Model
+## 6. Output Penyimpanan Model
 Setelah training selesai, file model akan disimpan dalam dua format:
 1. **`best_racism_model.pt`**: Bobot model terbaik (`state_dict`) berdasarkan metrik F1-score pada data validasi.
 2. **`saved_racism_model/`**: Folder lengkap berisi model (`model.safetensors`), tokenizer, dan konfigurasi agar siap di-load oleh backend bot game menggunakan library `transformers` Hugging Face.
