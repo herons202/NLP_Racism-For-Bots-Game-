@@ -1,3 +1,18 @@
+## Credit DataSet From : https://github.com/okkyibrohim/id-multi-label-hate-speech-and-abusive-language-detection
+
+Tujuan untuk Bot Game (Racist Bot Game):
+Menjelaskan fungsi model sebagai filter moderator otomatis real-time untuk mendeteksi chat rasis pemain di dalam game dan memberikan sanksi/sensor otomatis.
+Dataset yang Digunakan:
+Menggabungkan dataset Twitter Indonesia (re_dataset.csv) dan dataset racisms tambahan (racism_dataset_additional.csv).
+Preprocessing & Penanganan Kata Tersamar (Obfuscation):
+Cara sistem mendeteksi variasi penulisan tersamar (seperti n1gg3r, n*gga, atau hinaan rasial lokal lainnya) agar tetap terbaca oleh model.
+Model (IndoBERT):
+Mengapa menggunakan model indobenchmark/indobert-base-p1 (IndoBERT-base), yaitu karena model ini dilatih khusus pada korpus bahasa Indonesia sehingga sangat akurat menangani bahasa gaul/slang.
+Spesifikasi Hyperparameter:
+Menampilkan tabel parameter latih (seperti learning rate = 2e-5, epochs = 5, batch size = 16, serta penanganan imbalanced data menggunakan Weighted CrossEntropyLoss).
+Output Penyimpanan Model:
+Menjelaskan format penyimpanan model (best_racism_model.pt dan folder Hugging Face saved_racism_model/) agar siap di-load oleh backend bot Anda.
+
 # id-multi-label-hate-speech-and-abusive-language-detection
 
 ## About this data
