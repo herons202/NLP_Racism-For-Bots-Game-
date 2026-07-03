@@ -1,6 +1,6 @@
 ## Credit DataSet From : https://github.com/okkyibrohim/id-multi-label-hate-speech-and-abusive-language-detection
 
-# 🎯 NLP Racism Detector — Informasi Model & Training
+# NLP Racism Detector — Informasi Model & Training
 
 Dokumen ini menjelaskan detail teknis tentang model deteksi rasisme (NLP Racism Detection) yang dikembangkan untuk kebutuhan backend **Racist Bot Game**.
 
